@@ -1,5 +1,6 @@
-name: Azure Data Factory Signins  
-description: Identifies Azure Data Factory signins.  
+id: ca761f1c-4aea-4319-bc45-5557f5520721
+name: Unsafe Azure Data Factory Signins  
+description: Identifies unsafe Azure Data Factory signins which are not part of watchlist.
 severity: Low  
 requiredDataConnectors:  
   - connectorId: AzureActivity
