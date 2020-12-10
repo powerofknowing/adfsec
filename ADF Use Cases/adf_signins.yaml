@@ -1,0 +1,21 @@
+name: Azure Data Factory Signins  
+description: Identifies Azure Data Factory signins.  
+severity: Low  
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - InitialAccess
+relevantTechniques:
+  - T1074.004
+query:
+SigninLogs
+| take 1000
+| where AppDisplayName == "Azure Data Factory"
+| sort by TimeGenerated
+| project TimeGenerated, Category, Identity, AppDisplayName, Location, UserDisplayName, UserPrincipalName, Status

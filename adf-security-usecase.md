@@ -19,7 +19,7 @@
 
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
-* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role
+* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [ASBv1 3.1]
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. 
 * [ ] Ensure that network communication to Data Factory Command Channel does not go over public internet. 
 * [ ] Ensure that network communication to Data Factory Data Channel does not go over public internet. e.g. ExpressRoute private peering
