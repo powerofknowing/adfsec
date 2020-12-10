@@ -14,8 +14,14 @@ tactics:
 relevantTechniques:
   - T1074.004
 query:
+// Allowlist for ADF Admins, using Azure Sentinel Watchlist
+// TODO: Create a Sentinel Watchlist named ADFAdmins with UserPrincipalName
+let allowlist = _GetWatchlist('ADFAdmins')
+| project UserPrincipalName;
 SigninLogs
 | take 1000
 | where AppDisplayName == "Azure Data Factory"
 | sort by TimeGenerated
 | project TimeGenerated, Category, Identity, AppDisplayName, Location, UserDisplayName, UserPrincipalName, Status
+// Exclude allowlist users, i.e. ADF Admins
+| where UserPrincipalName !in~ (allowlist)
