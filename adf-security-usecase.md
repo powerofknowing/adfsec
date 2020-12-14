@@ -20,8 +20,7 @@
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [ASBv1 3.1]
-    * [Use Case: Unsafe Azure Data Factory Signins](ADF%20Use%20Cases/adf_signins.yaml)
-    * Real-time: Yes
+    * [Use Case: Unsafe ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. 
 * [ ] Ensure that network communication to Data Factory Command Channel does not go over public internet. 
 * [ ] Ensure that network communication to Data Factory Data Channel does not go over public internet. e.g. ExpressRoute private peering
@@ -35,6 +34,7 @@ Operation Names:
     * [ ] List Integration Runtime Authentication Keys
     * [ ] Create role assignment
     * [ ] Get DataPlane access
+    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)
     
 ## 2. Self-Hosted Integration Runtime (SHIR)
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
