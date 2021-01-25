@@ -166,3 +166,12 @@ N/A. ADF does not process or produce DNS-related logs.
 
  ### 4.6 Use Azure RBAC to control access to resources
  * Use Azure role-based access control (Azure RBAC) to control access to the Azure Data Factory control plane (the Azure portal).
+
+ ### 4.7 Use host-based data loss prevention to enforce access control
+ * Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
+
+ ### 4.8 Encrypt sensitive information at rest
+* Enable the data encryption mechanism for any data stores related to your Azure Data Factory deployments.
+
+### 4.9 Log and alert on changes to critical Azure resources
+* Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Data Factory and related resources.
