@@ -145,3 +145,24 @@ N/A. ADF does not process or produce DNS-related logs.
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 * In support scenarios where Microsoft needs to access customer data, Azure Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests. 
 * While Azure Lockbox is not available for ADF itself, Azure Lockbox does support Azure SQL Database and Azure Virtual Machines.
+
+## 4. Data Protection
+### 4.1: Maintain an inventory of sensitive Information
+* Use the Azure SQL Database data discovery and classification feature to tag sensitive information.
+
+### 4.2: Isolate systems storing or processing sensitive information
+* Implement separate subscriptions and/or management groups for development, test, and production. 
+* Integration Runtimes should be separated by virtual network (VNet)/subnet and tagged appropriately.
+
+### 4.3 Monitor and block unauthorized transfer of sensitive information
+* For data sources (such as Azure SQL Database) storing or processing sensitive information for your Azure Data Factory deployment, mark the related resources as sensitive using tags.
+
+### 4.4 Encrypt all sensitive information in transit
+* When authoring a pipeline by using JSON, add the encryption property and set it to true in the connection string. 
+* For Azure Storage, use HTTPS in the connection string.
+
+### 4.5 Use an active discovery tool to identify sensitive data
+ * If using ADF to copy and transform your Azure SQL Database instances, use the Azure SQL Database data discovery and classification feature.
+
+ ### 4.6 Use Azure RBAC to control access to resources
+ * Use Azure role-based access control (Azure RBAC) to control access to the Azure Data Factory control plane (the Azure portal).
