@@ -175,3 +175,24 @@ N/A. ADF does not process or produce DNS-related logs.
 
 ### 4.9 Log and alert on changes to critical Azure resources
 * Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Data Factory and related resources.
+
+## 5. Vulnerability management
+
+### 5.1 Run automated vulnerability scanning tools
+* Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL Servers.
+
+* If running Integration Runtime in an Azure Virtual Machine (VM), follow recommendations from Azure Security Center on performing vulnerability assessments on VMs.
+
+### 5.2 Deploy automated operating system patch management solution
+* If running  Integration Runtime in an Azure Virtual Machine (VM), use the Azure Update Management solution to manage updates and patches for VMs.
+
+### 5.3 Deploy automated patch management solution for third-party software titles
+* If running Integration Runtime in an Azure Virtual Machine (VM), you may use a third-party patch management solution.
+
+### 5.4 Compare back-to-back vulnerability scans
+* If running Integration Runtime on an Azure Virtual Machine, export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
+
+### 5.5 Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+* If running Integration Runtime in an Azure Virtual Machine, use the native vulnerability scanner. The vulnerability scanner included with Azure Security Center is powered by Qualys.
+
+## 6. Inventory and asset management
