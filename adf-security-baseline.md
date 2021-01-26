@@ -298,4 +298,43 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 ### 8.3 Ensure anti-malware software and signatures are updated
 * When deployed, Microsoft Antimalware for Azure will automatically install the latest signature, platform, and engine updates by default. Follow recommendations in Azure Security Center: "Compute & Apps" to ensure all endpoints are up to date with the latest signatures.
 
+## 9 Data recovery
+
+### 9.1 Ensure regular automated back ups
+* If running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and configure the VM, as well as the desired frequency and retention period for automatic backups.
+
+### 9.2 Perform complete system backups and backup any customer-managed keys
+* If running Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
+
+### 9.3 Validate all backups including customer-managed keys
+* If running Integration Runtime in an Azure Virtual Machine, ensure the ability to periodically perform data restoration of content within Azure Backup. 
+* If necessary, test restore content to an isolated VLAN. 
+* Periodically test restoration of backed up customer-managed keys.
+
+### 9.4 Ensure protection of backups and customer-managed keys
+* If running Integration Runtime in an Azure Virtual Machine (VM) and you back that VM up with Azure Backup, your VM is encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). 
+* Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
+
+## 10. Incident response
+
+### 10.1 Create an incident response guide
+* Build out an incident response guide for the organization. 
+* Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+
+### 10.2 Create an incident scoring and prioritization procedure
+* Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+
+### 10.3 Test security response procedures
+* Conduct exercises to test systems' incident response capabilities on a regular cadence. 
+* Identify weak points and gaps and revise plan as needed.
+
+### 10.4 Provide security incident contact details and configure alert notifications for security incidents
+* Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
+
+### 10.5 Incorporate security alerts into your incident response system
+* Export Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. 
+* Connect Azure Security Center data connector in Azure Sentinel to stream the alerts.
+
+### 10.6 Automate the response to security alerts
+* Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
