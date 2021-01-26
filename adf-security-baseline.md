@@ -196,3 +196,40 @@ N/A. ADF does not process or produce DNS-related logs.
 * If running Integration Runtime in an Azure Virtual Machine, use the native vulnerability scanner. The vulnerability scanner included with Azure Security Center is powered by Qualys.
 
 ## 6. Inventory and asset management
+
+### 6.1: Use automated Asset Discovery solution
+* Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within subscription(s). 
+* Ensure appropriate (read) permissions in tenant and enumerate all Azure subscriptions as well as resources within subscriptions.
+
+### 6.2: Maintain asset metadata
+* Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+
+### 6.3: Delete unauthorized Azure resources
+* Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. 
+* Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
+
+### 6.4: Define and Maintain an inventory of approved Azure resources
+* Define approved Azure resources and approved software for compute resources.
+
+### 6.5: Monitor for unapproved Azure resources
+*  Use Azure Policy to put restrictions on the type of resources that can be created in subscription(s).
+
+### 6.6: Monitor for unapproved software applications within compute resources
+* If running Integration Runtime in an Azure Virtual Machine (VM), leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines.
+
+### 6.7: Remove unapproved Azure resources and software applications
+* If running Integration Runtime in an Azure Virtual Machine, Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. 
+* Change Tracking can be used to identify all software installed on Virtual Machines.
+
+### 6.8: Use only approved applications
+* If running Integration Runtime in an Azure Virtual Machine (VM), use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on VMs.
+
+### 6.9: Use only approved Azure services
+* Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: (Not) allowed resource types
+
+### 6.10: Maintain an inventory of approved software titles
+* If running Integration Runtime in an Azure Virtual Machine (VM), adaptive application control from Azure Security Center can be used to help control which applications can run on Azure and non-Azure machines (Windows and Linux).
+
+### 6.11: Limit users' ability to interact with Azure Resource Manager
+### 6.12: Limit users' ability to execute scripts within compute resources
+### 6.13: Physically or logically segregate high risk applications
