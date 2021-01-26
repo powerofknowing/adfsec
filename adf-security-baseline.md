@@ -231,5 +231,59 @@ N/A. ADF does not process or produce DNS-related logs.
 * If running Integration Runtime in an Azure Virtual Machine (VM), adaptive application control from Azure Security Center can be used to help control which applications can run on Azure and non-Azure machines (Windows and Linux).
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
+* Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+
 ### 6.12: Limit users' ability to execute scripts within compute resources
+* If running Runtime Integration in an Azure Virtual Machine, depending on the type of scripts, operating system-specific configurations or third-party resources can be used to limit users' ability to execute scripts within Azure compute resources. 
+* Also Azure Security Center Adaptive Application Controls can be leveraged to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
+
 ### 6.13: Physically or logically segregate high risk applications
+* High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
+
+## 7. Secure configuration
+
+### 7.1 Establish secure configurations for all Azure resources
+* Define and implement standard security configurations for Azure Data Factory with Azure Policy. Use Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to audit or enforce the configuration of your Azure Data Factory instances. 
+
+### 7.2 Establish secure operating system configurations
+* If you are running your Runtime Integration in an Azure Virtual Machine, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on all compute resources.
+
+### 7.3 Maintain secure Azure resource configurations
+* Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across Azure resources.
+
+### 7.4 Maintain secure operating system configurations
+* If you are running your Integration Runtime in an Azure Virtual Machine (VM), note that there are several options for maintaining a secure configuration for VMs for deployment: Azure Resource Manager templates, Custom Virtual hard disk (VHD)
+
+### 7.5 Securely store configuration of Azure resources
+* If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+
+### 7.6 Securely store custom operating system images
+* If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. 
+* For container images, store them in Azure Container Registry and leverage Azure RBAC to ensure only authorized users may access the images.
+* The Data Factory Contributor role can be used to create and manage data factories, as well as child resources within them.
+
+### 7.7 Deploy configuration management tools for Azure resources
+* Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to alert, audit, and enforce system configurations. 
+* Additionally, develop a process and pipeline for managing policy exceptions.
+
+### 7.8 Deploy configuration management tools for operating systems
+* Aplies if your Integration Runtime is running in an Azure Virtual Machine. Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter.
+
+### 7.9 Implement automated configuration monitoring for Azure resources
+* Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to alert, audit, and enforce system configurations. 
+* Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for Azure resources.
+
+### 7.10 Implement automated configuration monitoring for operating systems
+* Aplies if your Integration Runtime is running in an Azure Virtual Machine. Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter.
+
+### 7.11 Manage Azure secrets securely
+* Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
+* Store credentials or secret values in an Azure Key Vault and use them during pipeline execution to pass to your activities. Ensure that soft-delete is enabled.
+
+### 7.12 Manage identities securely and automatically
+* When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Active Directory, and represents this specific data factory.
+
+### 7.13 Eliminate unintended credential exposure
+* Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+
+
