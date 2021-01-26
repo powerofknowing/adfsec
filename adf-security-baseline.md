@@ -181,13 +181,13 @@ N/A. ADF does not process or produce DNS-related logs.
 ### 5.1 Run automated vulnerability scanning tools
 * Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL Servers.
 
-* If running Integration Runtime in an Azure Virtual Machine (VM), follow recommendations from Azure Security Center on performing vulnerability assessments on VMs.
+* IF running IR in Azure VM, follow recommendations from Azure Security Center on performing vulnerability assessments on VMs.
 
 ### 5.2 Deploy automated operating system patch management solution
 * If running  Integration Runtime in an Azure Virtual Machine (VM), use the Azure Update Management solution to manage updates and patches for VMs.
 
 ### 5.3 Deploy automated patch management solution for third-party software titles
-* If running Integration Runtime in an Azure Virtual Machine (VM), you may use a third-party patch management solution.
+* IF running IR in Azure VM, you may use a third-party patch management solution.
 
 ### 5.4 Compare back-to-back vulnerability scans
 * If running Integration Runtime on an Azure Virtual Machine, export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
@@ -215,20 +215,20 @@ N/A. ADF does not process or produce DNS-related logs.
 *  Use Azure Policy to put restrictions on the type of resources that can be created in subscription(s).
 
 ### 6.6: Monitor for unapproved software applications within compute resources
-* If running Integration Runtime in an Azure Virtual Machine (VM), leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines.
+* IF running IR in Azure VM, leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines.
 
 ### 6.7: Remove unapproved Azure resources and software applications
 * If running Integration Runtime in an Azure Virtual Machine, Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. 
 * Change Tracking can be used to identify all software installed on Virtual Machines.
 
 ### 6.8: Use only approved applications
-* If running Integration Runtime in an Azure Virtual Machine (VM), use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on VMs.
+* IF running IR in Azure VM, use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on VMs.
 
 ### 6.9: Use only approved Azure services
 * Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: (Not) allowed resource types
 
 ### 6.10: Maintain an inventory of approved software titles
-* If running Integration Runtime in an Azure Virtual Machine (VM), adaptive application control from Azure Security Center can be used to help control which applications can run on Azure and non-Azure machines (Windows and Linux).
+* IF running IR in Azure VM, adaptive application control from Azure Security Center can be used to help control which applications can run on Azure and non-Azure machines (Windows and Linux).
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 * Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
@@ -286,7 +286,7 @@ N/A. ADF does not process or produce DNS-related logs.
 ### 7.13 Eliminate unintended credential exposure
 * Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-## Malware defense
+## 8. Malware defense
 
 ### 8.1 Use centrally managed anti-malware software 
 * If running Integration Runtime in an Azure Virtual Machine, Microsoft Antimalware for Azure Windows Virtual Machines can be used to continuously monitor and defend your resources.
@@ -298,13 +298,13 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 ### 8.3 Ensure anti-malware software and signatures are updated
 * When deployed, Microsoft Antimalware for Azure will automatically install the latest signature, platform, and engine updates by default. Follow recommendations in Azure Security Center: "Compute & Apps" to ensure all endpoints are up to date with the latest signatures.
 
-## 9 Data recovery
+## 9. Data recovery
 
 ### 9.1 Ensure regular automated back ups
 * If running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and configure the VM, as well as the desired frequency and retention period for automatic backups.
 
 ### 9.2 Perform complete system backups and backup any customer-managed keys
-* If running Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
+* IF running IR in Azure VM, enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
 
 ### 9.3 Validate all backups including customer-managed keys
 * If running Integration Runtime in an Azure Virtual Machine, ensure the ability to periodically perform data restoration of content within Azure Backup. 
@@ -312,7 +312,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 * Periodically test restoration of backed up customer-managed keys.
 
 ### 9.4 Ensure protection of backups and customer-managed keys
-* If running Integration Runtime in an Azure Virtual Machine (VM) and you back that VM up with Azure Backup, your VM is encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). 
+* IF running IR in Azure VM and you back that VM up with Azure Backup, your VM is encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). 
 * Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
 ## 10. Incident response
