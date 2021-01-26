@@ -286,4 +286,16 @@ N/A. ADF does not process or produce DNS-related logs.
 ### 7.13 Eliminate unintended credential exposure
 * Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
+## Malware defense
+
+### 8.1 Use centrally managed anti-malware software 
+* If running Integration Runtime in an Azure Virtual Machine, Microsoft Antimalware for Azure Windows Virtual Machines can be used to continuously monitor and defend your resources.
+
+### 8.2 Pre-scan files to be uploaded to non-compute Azure resources
+* Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on your content.
+Pre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc.
+
+### 8.3 Ensure anti-malware software and signatures are updated
+* When deployed, Microsoft Antimalware for Azure will automatically install the latest signature, platform, and engine updates by default. Follow recommendations in Azure Security Center: "Compute & Apps" to ensure all endpoints are up to date with the latest signatures.
+
 
