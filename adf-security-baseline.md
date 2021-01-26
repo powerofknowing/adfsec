@@ -190,10 +190,10 @@ N/A. ADF does not process or produce DNS-related logs.
 * IF running IR in Azure VM, you may use a third-party patch management solution.
 
 ### 5.4 Compare back-to-back vulnerability scans
-* If running Integration Runtime on an Azure Virtual Machine, export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
+* IF running IR in Azure VM, export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
 
 ### 5.5 Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-* If running Integration Runtime in an Azure Virtual Machine, use the native vulnerability scanner. The vulnerability scanner included with Azure Security Center is powered by Qualys.
+* IF running IR in Azure VM, use the native vulnerability scanner. The vulnerability scanner included with Azure Security Center is powered by Qualys.
 
 ## 6. Inventory and asset management
 
@@ -218,7 +218,7 @@ N/A. ADF does not process or produce DNS-related logs.
 * IF running IR in Azure VM, leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines.
 
 ### 6.7: Remove unapproved Azure resources and software applications
-* If running Integration Runtime in an Azure Virtual Machine, Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. 
+* IF running IR in Azure VM, Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. 
 * Change Tracking can be used to identify all software installed on Virtual Machines.
 
 ### 6.8: Use only approved applications
@@ -289,7 +289,7 @@ N/A. ADF does not process or produce DNS-related logs.
 ## 8. Malware defense
 
 ### 8.1 Use centrally managed anti-malware software 
-* If running Integration Runtime in an Azure Virtual Machine, Microsoft Antimalware for Azure Windows Virtual Machines can be used to continuously monitor and defend your resources.
+* IF running IR in Azure VM, Microsoft Antimalware for Azure Windows Virtual Machines can be used to continuously monitor and defend your resources.
 
 ### 8.2 Pre-scan files to be uploaded to non-compute Azure resources
 * Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on your content.
@@ -307,7 +307,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 * IF running IR in Azure VM, enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
 
 ### 9.3 Validate all backups including customer-managed keys
-* If running Integration Runtime in an Azure Virtual Machine, ensure the ability to periodically perform data restoration of content within Azure Backup. 
+* IF running IR in Azure VM, ensure the ability to periodically perform data restoration of content within Azure Backup. 
 * If necessary, test restore content to an isolated VLAN. 
 * Periodically test restoration of backed up customer-managed keys.
 
