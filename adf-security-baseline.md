@@ -246,13 +246,13 @@ N/A. ADF does not process or produce DNS-related logs.
 * Define and implement standard security configurations for Azure Data Factory with Azure Policy. Use Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to audit or enforce the configuration of your Azure Data Factory instances. 
 
 ### 7.2 Establish secure operating system configurations
-* If you are running your Runtime Integration in an Azure Virtual Machine, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on all compute resources.
+* IF running IR in Azure VM, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on all compute resources.
 
 ### 7.3 Maintain secure Azure resource configurations
 * Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across Azure resources.
 
 ### 7.4 Maintain secure operating system configurations
-* If you are running your Integration Runtime in an Azure Virtual Machine (VM), note that there are several options for maintaining a secure configuration for VMs for deployment: Azure Resource Manager templates, Custom Virtual hard disk (VHD)
+* IF running IR in Azure VM, note that there are several options for maintaining a secure configuration for VMs for deployment: Azure Resource Manager templates, Custom Virtual hard disk (VHD)
 
 ### 7.5 Securely store configuration of Azure resources
 * If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
@@ -301,7 +301,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 ## 9. Data recovery
 
 ### 9.1 Ensure regular automated back ups
-* If running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and configure the VM, as well as the desired frequency and retention period for automatic backups.
+* IF running IR in Azure VM, enable Azure Backup and configure the VM, as well as the desired frequency and retention period for automatic backups.
 
 ### 9.2 Perform complete system backups and backup any customer-managed keys
 * IF running IR in Azure VM, enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
