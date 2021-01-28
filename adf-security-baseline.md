@@ -16,10 +16,11 @@
 * Use Traffic Analytics to provide insights.
 
 ### 1.3: Protect critical web applications
-N/A
+* N/A.This is intended for Azure Apps Service or compute resources hosting web applications.
 
 ### 1.4: Deny communications with known malicious IP addresses
 * Enable DDoS Protection Standard on the virtual networks associated with your Integration Runtime deployment for protection from distributed denial-of-service attacks.
+* Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
 ### 1.5: Record network packets
 * Enable network security group (NSG) flow logs for the NSG protecting your Integration Runtime deployment and send logs into an Azure Storage Account for traffic auditing.
