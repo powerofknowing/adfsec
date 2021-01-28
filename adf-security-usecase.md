@@ -44,6 +44,8 @@ Operation Names:
 * [ ] Ensure that NSG Flow logs v2 are enabled for SHIR VM. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
 * [ ] Ensure that Traffic Analytics are enabled and sent to Log Analytics Workspace (LAW) for Sentinel. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
 * [ ] Ensure that SHIR hosting VNET is protected by DDoS Standard. [[1.4](adf-security-baseline.md#14-deny-communications-with-known-malicious-ip-addresses)]
+* [ ] Ensure that SHIR hosting VNET's NSG Flow logs are sent to Azure Storage Account for traffic auditing. [[1.5](adf-security-baseline.md#15-record-network-packets)]
+* [ ] Ensure that outbound traffic from SHIR is monitored by IDS/IPS. [[1.6](adf-security-baseline.md#16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips)]
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
 * [ ] Ensure that data store credentials are not stored locally in SHIR.
 
