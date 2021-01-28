@@ -16,7 +16,7 @@
 * Use Traffic Analytics to provide insights.
 
 ### 1.3: Protect critical web applications
-* N/A.This is intended for Azure Apps Service or compute resources hosting web applications.
+N/A. This is intended for Azure Apps Service or compute resources hosting web applications.
 
 ### 1.4: Deny communications with known malicious IP addresses
 * Enable DDoS Protection Standard on the virtual networks associated with your Integration Runtime deployment for protection from distributed denial-of-service attacks.
@@ -29,7 +29,7 @@
 * Inspect outbound traffic from Azure-SSIS IR by routing traffic initiated from Azure-SSIS IR to on-premises firewall appliance via Azure ExpressRoute force tunneling or to a Network Virtual Appliance (NVA) that supports IDS/IPS capabilities.
 
 ### 1.7: Manage traffic to web applications
-N/A
+N/A. This is intended for Azure Apps Service or compute resources hosting web applications.
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 *  Use VNet service tags to define network access controls on network security group (NSG). Use service tags (e.g., DataFactoryManagement) in place of specific IP addresses when creating security rules.

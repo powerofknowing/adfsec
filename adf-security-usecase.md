@@ -46,6 +46,7 @@ Operation Names:
 * [ ] Ensure that SHIR hosting VNET is protected by DDoS Standard. [[1.4](adf-security-baseline.md#14-deny-communications-with-known-malicious-ip-addresses)]
 * [ ] Ensure that SHIR hosting VNET's NSG Flow logs are sent to Azure Storage Account for traffic auditing. [[1.5](adf-security-baseline.md#15-record-network-packets)]
 * [ ] Ensure that outbound traffic from SHIR is monitored by IDS/IPS. [[1.6](adf-security-baseline.md#16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips)]
+* [ ] Ensure that SHIR hosting VNET is utilizing NSG Service Tag `DataFactoryManagement` in NSG rules. [[1.8](adf-security-baseline.md#18-minimize-complexity-and-administrative-overhead-of-network-security-rules)]
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
 * [ ] Ensure that data store credentials are not stored locally in SHIR.
 
