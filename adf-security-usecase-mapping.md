@@ -19,3 +19,12 @@
 ## Mapping details
 ADF Security Baseline details are [here](adf-security-baseline.md). \
 ADF Security Use Cases are [here](adf-security-usecase.md).
+
+```
++----------+      +---------------+      +-------------+      +-------------+      +------------+
+| Security |      |   Identify    |      |             |      | Use Case    |      | Develop    |
+| Baseline | +--> |   Applicable  | +--> | Team Review | +--> | Definitions | +--> | Use Cases  |
+|          |      |   Cases       |      |             |      |             |      |            |
++----------+      +---------------+      +-------------+      +-------------+      +------------+
+
+```
