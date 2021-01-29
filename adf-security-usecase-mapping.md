@@ -2,9 +2,9 @@
 ## Baseline to Use Case mapping
 | 1. Network Security | 2. Logging & Monitoring | 3. Identity & Access control | 4. Data Protection | 5. Vulnerability Mgmt | 6. Inventory & Asset Mgmt | 7. Secure config | 8. Malware Defense | 9. Data Recovery | 10. Incident Response |
 | ------------------- | ------------------------- | ------------------------------ | --- | --- | --- | --- | --- | --- | --- |
-| [1.1](adf-security-baseline.md#11-protect-azure-resources-within-virtual-networks)  | N/A  | 3.1  | N/A | N/A | N/A  | 7.1  | 8.1 | N/A | N/A |
+| [1.1](adf-security-baseline.md#11-protect-azure-resources-within-virtual-networks)  | N/A  | [3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)  | N/A | N/A | N/A  | 7.1  | 8.1 | N/A | N/A |
 | [1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)  | [2.2](adf-security-baseline.md#22-configure-central-security-log-management)  | N/A  | 4.2 | 5.2 | N/A  | N/A  | N/A | N/A | N/A |
-| N/A  | [2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)  | 3.3  | N/A | N/A | N/A  | N/A  | N/A | N/A | N/A |
+| N/A  | [2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)  | [3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)  | N/A | N/A | N/A  | N/A  | N/A | N/A | N/A |
 | [1.4](adf-security-baseline.md#14-deny-communications-with-known-malicious-ip-addresses)  | [2.4](adf-security-baseline.md#24-collect-security-logs-from-operating-systems)  | 3.4  | N/A | N/A | N/A  | N/A  | -   | N/A | N/A |
 | [1.5](adf-security-baseline.md#15-record-network-packets)  | [2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)  | N/A  | N/A | N/A | N/A  | 7.5  | -   | -   | N/A |
 | [1.6](adf-security-baseline.md#16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips)  | [2.6](adf-security-baseline.md#26-monitor-and-review-logs)  | 3.6  | 4.6 | -   | 6.6  | N/A  | -   | -   | N/A |

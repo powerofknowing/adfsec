@@ -21,7 +21,7 @@
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
     * [Use Case: Unsafe ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
-* [ ] Ensure that ADF Activity Log is monitored.
+* [ ] Ensure that ADF Activity Log is monitored. [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
     * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)  
 Operation Names:
     * [ ] Create or Update any Data Factory
@@ -33,7 +33,7 @@ Operation Names:
     * [ ] Create role assignment
     * [ ] Get DataPlane access
     
-* [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. 
+* [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that network communication to Data Factory Command Channel does not go over public internet. 
 * [ ] Ensure that network communication to Data Factory Data Channel does not go over public internet. e.g. ExpressRoute private peering
 * [ ] Ensure that network resources related to Data Factory instances are tagged.  [[1.10](adf-security-baseline.md#110-document-traffic-configuration-rules)]
