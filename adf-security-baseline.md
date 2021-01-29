@@ -101,7 +101,7 @@ N/A. ADF does not process or produce DNS-related logs.
 * Use PIM Just-in-Time VM access to reduce the availability of administrative permissions
 
 ### 3.2: Change default passwords where applicable
-* N/A
+N/A. Azure Data Factory uses Azure Active Directory (AD) to provide access to the Azure portal as well as the Azure Data Factory console. Azure AD does not have the concept of default passwords.
 
 ### 3.3: Use dedicated administrative accounts
 * Create standard operating procedures around the use of dedicated administrative accounts for access to the Azure control plane (Azure portal) as well as the ADF console. 

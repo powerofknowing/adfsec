@@ -19,7 +19,7 @@
 
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
-* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [ASBv1 3.1]
+* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
     * [Use Case: Unsafe ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
 * [ ] Ensure that ADF Activity Log is monitored.
     * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)  
