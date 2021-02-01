@@ -33,7 +33,8 @@ Operation Names:
     * [ ] Create role assignment
     * [ ] Get DataPlane access
 
-* [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]    
+* [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
+* [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
 * [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
@@ -54,7 +55,7 @@ Operation Names:
 * [ ] Ensure that SHIR hosting VNET NSG rule changes are monitored. [[1.11](adf-security-baseline.md#111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes)]
 * [ ] Ensure that SHIR VMs are accessed through PAWs or Jumpbox VMs, not directly. [[3.6](adf-security-baseline.md#36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks)]
 * [ ] Ensure that access to SHIR VMs is only allowed from IPs and countries specified in Conditional Access Named locations. [[3.8](adf-security-baseline.md#38-manage-azure-resources-from-only-approved-locations)]
-* [ ] Ensure that SHIR VMs are onboarded to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)] [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
+* [ ] Ensure that SHIR VMs are onboarded to Azure Sentinel. [[2.4](adf-security-baseline.md#24-collect-security-logs-from-operating-systems)] [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
 * [ ] Ensure that data store credentials are not stored locally in SHIR.
 
