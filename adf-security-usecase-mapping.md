@@ -15,7 +15,7 @@
 | [1.11](adf-security-baseline.md#111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes) | -    | [3.11](adf-security-baseline.md#311-monitor-attempts-to-access-deactivated-credentials) | -   | -   | [6.11](adf-security-baseline.md#611-limit-users-ability-to-interact-with-azure-resource-manager) | [7.11](adf-security-baseline.md#711-manage-azure-secrets-securely) | -   | -   | -   |
 | -    | -    | [3.12](adf-security-baseline.md#312-alert-on-account-login-behavior-deviation) | -   | -   | [6.12](adf-security-baseline.md#612-limit-users-ability-to-execute-scripts-within-compute-resources) | [7.12](adf-security-baseline.md#712-manage-identities-securely-and-automatically) | -   | -   | -   |
 | -    | -    | N/A  | -   | -   | N/A  | [7.13](adf-security-baseline.md#713-eliminate-unintended-credential-exposure) | -   | -   | -   |
-
+| T:8 | T:8 | T:10 | T:3 | T:1 | T:6 | T:6 | T:1 | T:0 | T:0 |
 ## Mapping details
 ADF Security Baseline details are [here](adf-security-baseline.md). \
 ADF Security Use Cases are [here](adf-security-usecase.md).
