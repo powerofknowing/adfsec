@@ -61,7 +61,7 @@ N/A. This is intended for Azure Apps Service or compute resources hosting web ap
 * Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level.
 
 ### 2.4: Collect security logs from operating systems
-* IF running your Integration Runtime in an Azure Virtual Machine (VM), use Azure Monitor to collect data from the virtual machine.
+* IF running IR in Azure VM, use Azure Monitor to collect data from the virtual machine.
 
 ### 2.5: Configure security log storage retention
 * Enable diagnostic settings for Azure Data Factory. 
@@ -185,7 +185,7 @@ N/A. Azure Data Factory uses Azure Active Directory (AD) to provide access to th
 * IF running IR in Azure VM, follow recommendations from Azure Security Center on performing vulnerability assessments on VMs.
 
 ### 5.2 Deploy automated operating system patch management solution
-* If running  Integration Runtime in an Azure Virtual Machine (VM), use the Azure Update Management solution to manage updates and patches for VMs.
+* IF running IR in Azure VM, use the Azure Update Management solution to manage updates and patches for VMs.
 
 ### 5.3 Deploy automated patch management solution for third-party software titles
 * IF running IR in Azure VM, you may use a third-party patch management solution.
@@ -235,7 +235,7 @@ N/A. Azure Data Factory uses Azure Active Directory (AD) to provide access to th
 * Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
-* If running Runtime Integration in an Azure Virtual Machine, depending on the type of scripts, operating system-specific configurations or third-party resources can be used to limit users' ability to execute scripts within Azure compute resources. 
+* IF running IR in Azure VM, depending on the type of scripts, operating system-specific configurations or third-party resources can be used to limit users' ability to execute scripts within Azure compute resources. 
 * Also Azure Security Center Adaptive Application Controls can be leveraged to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
 ### 6.13: Physically or logically segregate high risk applications
@@ -275,7 +275,7 @@ N/A. Azure Data Factory uses Azure Active Directory (AD) to provide access to th
 * Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for Azure resources.
 
 ### 7.10 Implement automated configuration monitoring for operating systems
-* Aplies if your Integration Runtime is running in an Azure Virtual Machine. Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter.
+* IF running IR in Azure VM, Azure Automation State Configuration can be used, which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter.
 
 ### 7.11 Manage Azure secrets securely
 * Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
