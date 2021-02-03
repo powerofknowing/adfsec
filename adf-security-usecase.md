@@ -39,7 +39,9 @@
     * [ ] Get GitHub access token \
     `Microsoft.DataFactory/factories/getGitHubAccessToken`
     
-* [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
+* [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to a Log Analytics Workspace which is connected to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
+    * Log categories: ActivityRuns, PiplelineRuns, TriggerRuns
+    * Destination table: Resource specific
 * [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
