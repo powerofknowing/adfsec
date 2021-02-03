@@ -89,5 +89,7 @@ Operation Names:
 ## 4. Data Access
 
 # References
+* [Azure Security Benchmark](https://docs.microsoft.com/en-us/azure/security/benchmarks/)
+* [Azure Data Factory Security Baseline](https://docs.microsoft.com/en-us/azure/data-factory/security-baseline)
 * [Azure Data Factory Operation Groups](https://docs.microsoft.com/en-us/rest/api/datafactory/v2#rest-operation-groups)
 * [Azure Data Factory Operations List](https://docs.microsoft.com/en-us/rest/api/datafactory/operations/list#operations_list) 
