@@ -24,14 +24,12 @@
 * [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
     * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)  
 Operation Names:
-    * [ ] Create or Update any Data Factory
-    * [ ] Create or Update any Linked Service
-    * [ ] Create or Update any Integration Runtime
-    * [ ] Delete Integration Runtime
-    * [ ] Get GitHub access token
-    * [ ] List Integration Runtime Authentication Keys
-    * [ ] Create role assignment
+    * [ ] Create or Update any Data Factory. Microsoft.DataFactory/factories/write
     * [ ] Get DataPlane access
+    Microsoft.DataFactory/factories/getDataPlaneAccess/action
+    * [ ] Get GitHub access token
+    * [ ] Create role assignment
+    
 
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
 * [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
@@ -58,7 +56,24 @@ Operation Names:
 * [ ] Ensure that SHIR VMs are onboarded to Azure Sentinel. [[2.4](adf-security-baseline.md#24-collect-security-logs-from-operating-systems)] [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
 * [ ] Ensure that data store credentials are not stored locally in SHIR.
-
+* [ ] Ensure that Integration Runtime operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
+Operation Names:
+    * [ ] Create or Update any Integration Runtime
+    Microsoft.DataFactory/factories/integrationruntimes/write
+    * [ ] Delete Integration Runtime
+    Microsoft.DataFactory/factories/integrationruntimes/delete
+    * [ ] List Integration Runtime Authentication Keys
+    Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/read
+    
+    
 
 ## 3. Linked Services
+
+* [ ] Ensure that Linked Service operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
+    Operation Names:
+    * [ ] Create or Update any Linked Service.
+    Microsoft.DataFactory/factories/linkedServices/write
+    * [ ] Delete Linked Service.
+    Microsoft.DataFactory/factories/linkedServices/delete
+    
 ## 4. Data Access
