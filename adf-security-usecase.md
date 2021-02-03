@@ -26,6 +26,8 @@
 Operation Names:
     * [ ] Create or Update any Data Factory. \
     `Microsoft.DataFactory/factories/write`
+    * [ ] Delete Data Factory. \
+    `Microsoft.DataFactory/factories/delete`
     * [ ] Get DataPlane access \
     `Microsoft.DataFactory/factories/getDataPlaneAccess/action`
     * [ ] Get GitHub access token
@@ -78,3 +80,7 @@ Operation Names:
     `Microsoft.DataFactory/factories/linkedServices/delete`
     
 ## 4. Data Access
+
+# References
+
+[Azure Data Factory Operations List](https://docs.microsoft.com/en-us/rest/api/datafactory/operations/list#operations_list) 
