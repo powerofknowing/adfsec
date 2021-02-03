@@ -21,22 +21,24 @@
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
     * [Use Case: Unsafe ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
+
+    Operation Name(s):
+    * [ ] Create role assignment \
+    `Microsoft.Authorization/roleAssignments/write`
 * [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
-    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)  
-Operation Names:
+    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)
+    
+    Operation Name(s):
     * [ ] Create or Update any Data Factory. \
     `Microsoft.DataFactory/factories/write`
     * [ ] Delete Data Factory. \
     `Microsoft.DataFactory/factories/delete`
     * [ ] Get DataPlane access \
     `Microsoft.DataFactory/factories/getDataPlaneAccess/action`
-    * [ ] Create role assignment \
-    `Microsoft.Authorization/roleAssignments/write`
+    
     * [ ] Get GitHub access token \
     `Microsoft.DataFactory/factories/getGitHubAccessToken`
     
-    
-
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
 * [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
@@ -85,5 +87,5 @@ Operation Names:
 ## 4. Data Access
 
 # References
-
-[Azure Data Factory Operations List](https://docs.microsoft.com/en-us/rest/api/datafactory/operations/list#operations_list) 
+* [Azure Data Factory Operation Groups](https://docs.microsoft.com/en-us/rest/api/datafactory/v2#rest-operation-groups)
+* [Azure Data Factory Operations List](https://docs.microsoft.com/en-us/rest/api/datafactory/operations/list#operations_list) 
