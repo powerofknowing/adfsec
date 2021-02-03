@@ -86,8 +86,16 @@ Operation Names:
     `Microsoft.DataFactory/factories/linkedServices/write`
     * [ ] Delete Linked Service. \
     `Microsoft.DataFactory/factories/linkedServices/delete`
-    
-## 4. Data Access
+
+## 4. Pipelines
+* [ ] Ensure that Data Pipelines are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] \
+Operation Names:
+    * [ ] Create or Update any Pipeline \
+    `Microsoft.DataFactory/factories/pipelines/write`
+    * [ ] Delete Pipeline \
+    `Microsoft.DataFactory/factories/pipelines/delete`
+
+## 5. Data Access
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 
 
