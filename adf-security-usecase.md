@@ -30,8 +30,11 @@ Operation Names:
     `Microsoft.DataFactory/factories/delete`
     * [ ] Get DataPlane access \
     `Microsoft.DataFactory/factories/getDataPlaneAccess/action`
-    * [ ] Get GitHub access token
-    * [ ] Create role assignment
+    * [ ] Create role assignment \
+    `Microsoft.Authorization/roleAssignments/write`
+    * [ ] Get GitHub access token \
+    `Microsoft.DataFactory/factories/getGitHubAccessToken`
+    
     
 
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
