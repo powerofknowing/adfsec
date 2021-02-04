@@ -44,9 +44,6 @@
     * Operation Name: Create or update resource diagnostic setting \
     `microsoft.insights/diagnosticSettings/write`
 * [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
-* [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
-    * Requires a watchlist
-* [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
 * [ ] Ensure that network communication to Data Factory Command Channel does not go over public internet. 
 * [ ] Ensure that network communication to Data Factory Data Channel does not go over public internet. e.g. ExpressRoute private peering
 * [ ] Ensure that network resources related to Data Factory instances are tagged.  [[1.10](adf-security-baseline.md#110-document-traffic-configuration-rules)]
@@ -76,8 +73,6 @@ Operation Names:
     * [ ] List Integration Runtime Authentication Keys \
     `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/read`
     
-    
-
 ## 3. Linked Services
 
 * [ ] Ensure that Linked Service operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
@@ -88,15 +83,18 @@ Operation Names:
     `Microsoft.DataFactory/factories/linkedServices/delete`
 
 ## 4. Pipelines
-* [ ] Ensure that Data Pipelines are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] \
+* [ ] Ensure that Pipeline operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] \
 Operation Names:
     * [ ] Create or Update any Pipeline \
     `Microsoft.DataFactory/factories/pipelines/write`
     * [ ] Delete Pipeline \
     `Microsoft.DataFactory/factories/pipelines/delete`
 
-## 5. Data Access
+## 5. Identity & Access
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
+* [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
+    * Requires a watchlist
+* [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
 
 
 # Terminology
