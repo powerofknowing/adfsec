@@ -82,6 +82,8 @@ Operation Names:
     * [ ] Delete Linked Service. \
     `Microsoft.DataFactory/factories/linkedServices/delete`
 
+* [ ] Ensure that Linked Services are using `Managed Identity` as Authentication Method when connecting to other Azure services. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
+
 ## 4. Pipelines
 * [ ] Ensure that Pipeline operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] \
 Operation Names:
