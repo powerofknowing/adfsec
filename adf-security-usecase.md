@@ -72,6 +72,8 @@ Operation Names:
     `Microsoft.DataFactory/factories/integrationruntimes/delete`
     * [ ] List Integration Runtime Authentication Keys \
     `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/read`
+    * [ ] Create Self hosted Integration Runtime express install link \
+    `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
     
 ## 3. Linked Services
 
@@ -87,10 +89,12 @@ Operation Names:
 ## 4. Pipelines
 * [ ] Ensure that Pipeline operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] \
 Operation Names:
-    * [ ] Create or Update any Pipeline \
+    * [ ] Create or Update any Pipeline. \
     `Microsoft.DataFactory/factories/pipelines/write`
     * [ ] Delete Pipeline \
     `Microsoft.DataFactory/factories/pipelines/delete`
+    * [ ] Create or Update Dataset \
+    `Microsoft.DataFactory/factories/datasets/write`
 
 ## 5. Identity & Access
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
