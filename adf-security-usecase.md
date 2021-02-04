@@ -20,7 +20,7 @@
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
-    * [Use Case: Unsafe ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
+    * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
 
     Operation Name(s):
     * [ ] Create role assignment \
@@ -76,7 +76,7 @@ Operation Names:
     `Microsoft.DataFactory/datafactories/integrationruntimes/regenerateauthkey/action`
     * [ ] Create Self hosted Integration Runtime express install link \
     `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
-    * [Use Case: Rare ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
+    * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
     
 ## 3. Linked Services
 
@@ -86,6 +86,7 @@ Operation Names:
     `Microsoft.DataFactory/factories/linkedServices/write`
     * [ ] Delete Linked Service. \
     `Microsoft.DataFactory/factories/linkedServices/delete`
+    * [Use Case: ADF Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml)
 
 * [ ] Ensure that Linked Services are using `Managed Identity` as Authentication Method when connecting to other Azure services. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 
