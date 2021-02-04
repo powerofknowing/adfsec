@@ -18,7 +18,7 @@ let starttime = 14d;
   let endtime = 1d;
   let alertOperationThreshold = 5;
   let SensitiveOperationList = dynamic(
-  ["Create or Update Integration Runtime", "Delete Integration Runtime", "List Integration Runtime Authentication Keys", "Create Self hosted Integration Runtime express install link"]);
+  ["Create or Update Integration Runtime", "Delete Integration Runtime", "List Integration Runtime Authentication Keys", "Create Self hosted Integration Runtime express install link", "Regenerate Integration Runtime Authentication Keys"]);
   let SensitiveActivity = AzureActivity
   | where OperationName in~ (SensitiveOperationList)
   | where ActivityStatus =~ "Succeeded";
