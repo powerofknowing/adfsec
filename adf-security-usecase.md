@@ -76,6 +76,7 @@ Operation Names:
     `Microsoft.DataFactory/datafactories/integrationruntimes/regenerateauthkey/action`
     * [ ] Create Self hosted Integration Runtime express install link \
     `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
+    * [Use Case: Rare ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
     
 ## 3. Linked Services
 
