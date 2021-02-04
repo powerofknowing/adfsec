@@ -1,0 +1,36 @@
+id: e26114a8-8b3e-486c-a29d-b38944fa7451
+name: Rare ADF Integration Runtime Operations
+description: Identifies rare ADF Integration Runtime operations.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Credential Access
+  - Persistence
+query:
+let starttime = 14d;
+  let endtime = 1d;
+  let alertOperationThreshold = 5;
+  let SensitiveOperationList = dynamic(
+  ["Create or Update Integration Runtime", "Delete Integration Runtime", "List Integration Runtime Authentication Keys", "Create Self hosted Integration Runtime express install link"]);
+  let SensitiveActivity = AzureActivity
+  | where OperationName in~ (SensitiveOperationList)
+  | where ActivityStatus =~ "Succeeded";
+  SensitiveActivity
+  | where TimeGenerated between (ago(starttime) .. ago(endtime))
+  | summarize count() by CallerIpAddress, Caller
+  | where count_ >= alertOperationThreshold
+  | join kind = rightanti ( 
+  SensitiveActivity
+  | where TimeGenerated >= ago(endtime)
+  | summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
+  OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
+  by CallerIpAddress, Caller, OperationName
+  ) on CallerIpAddress, Caller
+  | extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress
