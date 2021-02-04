@@ -1,0 +1,36 @@
+id: 79d139ea-b125-4208-aefb-dd97e467cf4d
+name: Rare ADF Linked Service Operations
+description: Identifies rare ADF Linked Service operations.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Credential Access
+  - Persistence
+query:
+let starttime = 24h;
+let endtime = 1h;
+let alertOperationThreshold = 3;
+let SensitiveOperationList = dynamic(
+["Create or Update any Linked Service.", "Delete Linked Service"]);
+let SensitiveActivity = AzureActivity
+| where OperationName in~ (SensitiveOperationList)
+| where ActivityStatus =~ "Succeeded";
+SensitiveActivity
+| where TimeGenerated between (ago(starttime) .. ago(endtime))
+| summarize count() by CallerIpAddress, Caller
+| where count_ >= alertOperationThreshold
+| join kind = rightanti ( 
+SensitiveActivity
+| where TimeGenerated >= ago(endtime)
+| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
+OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
+by CallerIpAddress, Caller, OperationName
+) on CallerIpAddress, Caller
+| extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress
