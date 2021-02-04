@@ -16,21 +16,15 @@ tactics:
 query:
 let starttime = 24h;
 let endtime = 1h;
-let alertOperationThreshold = 3;
-let SensitiveOperationList = dynamic(
-["Create or Update any Linked Service.", "Delete Linked Service"]);
-let SensitiveActivity = AzureActivity
-| where OperationName in~ (SensitiveOperationList)
-| where ActivityStatus =~ "Succeeded";
-SensitiveActivity
+let alertOperationThreshold = 5;
+let OperationList = dynamic(
+["Microsoft.DataFactory/factories/linkedServices/write", "Microsoft.DataFactory/factories/linkedServices/delete"]);
+AzureActivity 
 | where TimeGenerated between (ago(starttime) .. ago(endtime))
-| summarize count() by CallerIpAddress, Caller
-| where count_ >= alertOperationThreshold
-| join kind = rightanti ( 
-SensitiveActivity
-| where TimeGenerated >= ago(endtime)
+| where ResourceProvider == "Microsoft.DataFactory"
+| where OperationNameValue in~ (OperationList)
 | summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
 OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
 by CallerIpAddress, Caller, OperationName
-) on CallerIpAddress, Caller
+| where ActivityCountByCallerIPAddress >= alertOperationThreshold
 | extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress
