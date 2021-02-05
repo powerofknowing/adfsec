@@ -1,6 +1,6 @@
-id: e26114a8-8b3e-486c-a29d-b38944fa7451
-name: ADF Integration Runtime Operations
-description: Identifies ADF Integration Runtime operations.
+id: 860a62b6-58f3-469b-86a9-049ef992debf
+name: ADF Pipeline Operations
+description: Identifies ADF Pipeline operations.
 severity: Medium
 requiredDataConnectors:  
   - connectorId: AzureActivity
@@ -16,21 +16,15 @@ tactics:
 query:
 let starttime = 24h;
 let endtime = 1h;
-let alertOperationThreshold = 3;
-let SensitiveOperationList = dynamic(
-["Create or Update Integration Runtime", "Delete Integration Runtime", "List Integration Runtime Authentication Keys", "Create Self hosted Integration Runtime express install link", "Regenerate Integration Runtime Authentication Keys"]);
-let SensitiveActivity = AzureActivity
-| where OperationName in~ (SensitiveOperationList)
-| where ActivityStatus =~ "Succeeded";
-SensitiveActivity
+let alertOperationThreshold = 2;
+let OperationList = dynamic(
+["Microsoft.DataFactory/factories/pipelines/write", "Microsoft.DataFactory/factories/pipelines/delete"]);
+AzureActivity 
 | where TimeGenerated between (ago(starttime) .. ago(endtime))
-| summarize count() by CallerIpAddress, Caller
-| where count_ >= alertOperationThreshold
-| join kind = rightanti ( 
-SensitiveActivity
-| where TimeGenerated >= ago(endtime)
+| where ResourceProvider == "Microsoft.DataFactory"
+| where OperationNameValue in~ (OperationList)
 | summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
 OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
 by CallerIpAddress, Caller, OperationName
-) on CallerIpAddress, Caller
+| where ActivityCountByCallerIPAddress >= alertOperationThreshold
 | extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress
