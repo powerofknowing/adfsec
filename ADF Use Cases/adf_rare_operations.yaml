@@ -14,12 +14,12 @@ tactics:
   - Credential Access
   - Persistence
 query:
-  let starttime = 14d;
+  let starttime = 7d;
   let endtime = 1d;
   // The number of operations below which an IP address is considered an unusual source of role assignment operations
-  let alertOperationThreshold = 5;
+  let alertOperationThreshold = 3;
   let SensitiveOperationList = dynamic(
-  ["Create or Update any Data Factory.", "Get GitHub access token", "Register Subscription", "Get DataPlane access", "Create role assignment"]);
+  ["Create or Update any Data Factory.", "Delete Data Factory", "Get GitHub access token", "Get DataPlane access", "Create role assignment"]);
   let SensitiveActivity = AzureActivity
   | where OperationName in~ (SensitiveOperationList)
   | where ActivityStatus =~ "Succeeded";
