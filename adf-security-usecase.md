@@ -99,6 +99,7 @@ Operation Names:
     `Microsoft.DataFactory/factories/pipelines/delete`
     * [ ] Create or Update Dataset \
     `Microsoft.DataFactory/factories/datasets/write`
+    * [Use Case: ADF Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml)
 
 ## 5. Identity & Access
 * [ ] Ensure that only Data Factory Managed Identity (MI) is used to authenticate to other Azure services and data sources. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
