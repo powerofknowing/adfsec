@@ -19,13 +19,12 @@
 
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
-* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
-    * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) \
+* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)] \
     Operation Name(s):
     * [ ] Create role assignment \
     `Microsoft.Authorization/roleAssignments/write`
-* [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
-    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) \
+    * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
+* [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
     Operation Name(s):
     * [ ] Create or Update any Data Factory. \
     `Microsoft.DataFactory/factories/write`
@@ -35,6 +34,7 @@
     `Microsoft.DataFactory/factories/getDataPlaneAccess/action`
     * [ ] Get GitHub access token \
     `Microsoft.DataFactory/factories/getGitHubAccessToken`
+    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to a Log Analytics Workspace which is connected to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
     * Log categories: ActivityRuns, PiplelineRuns, TriggerRuns
     * Destination table: Resource specific
