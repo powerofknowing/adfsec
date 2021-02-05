@@ -19,10 +19,12 @@
 
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
-* [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)] \
+* [ ] Ensure that access to Data Factory management plane is monitored. [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)] \
     Operation Name(s):
-    * [ ] Create role assignment \
+    * [ ] Create role assignment (RBAC: Data Factory Contributor role) \
     `Microsoft.Authorization/roleAssignments/write`
+    * [ ] Delete role assignment (RBAC: Data Factory Contributor role) \
+    `Microsoft.Authorization/roleAssignments/delete`
     * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
         * Requires a watchlist
 * [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
