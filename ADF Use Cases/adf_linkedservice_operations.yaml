@@ -1,6 +1,6 @@
 id: 79d139ea-b125-4208-aefb-dd97e467cf4d
-name: Rare ADF Linked Service Operations
-description: Identifies rare ADF Linked Service operations.
+name: ADF Linked Service Operations
+description: Identifies ADF Linked Service operations.
 severity: Medium
 requiredDataConnectors:  
   - connectorId: AzureActivity
@@ -16,7 +16,7 @@ tactics:
 query:
 let starttime = 24h;
 let endtime = 1h;
-let alertOperationThreshold = 5;
+let alertOperationThreshold = 3;
 let OperationList = dynamic(
 ["Microsoft.DataFactory/factories/linkedServices/write", "Microsoft.DataFactory/factories/linkedServices/delete"]);
 AzureActivity 
