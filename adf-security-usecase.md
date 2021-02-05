@@ -20,14 +20,12 @@
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored.  RBAC: Data Factory Contributor role [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)]
-    * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
-
+    * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) \
     Operation Name(s):
     * [ ] Create role assignment \
     `Microsoft.Authorization/roleAssignments/write`
 * [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
-    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)
-    
+    * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) \
     Operation Name(s):
     * [ ] Create or Update any Data Factory. \
     `Microsoft.DataFactory/factories/write`
@@ -37,7 +35,6 @@
     `Microsoft.DataFactory/factories/getDataPlaneAccess/action`
     * [ ] Get GitHub access token \
     `Microsoft.DataFactory/factories/getGitHubAccessToken`
-    
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to a Log Analytics Workspace which is connected to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
     * Log categories: ActivityRuns, PiplelineRuns, TriggerRuns
     * Destination table: Resource specific
@@ -50,6 +47,19 @@
     
 ## 2. Self-Hosted Integration Runtime (SHIR)
 
+* [ ] Ensure that Integration Runtime operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
+Operation Names:
+    * [ ] Create or Update any Integration Runtime \
+    `Microsoft.DataFactory/factories/integrationruntimes/write`
+    * [ ] Delete Integration Runtime \
+    `Microsoft.DataFactory/factories/integrationruntimes/delete`
+    * [ ] List Integration Runtime Authentication Keys \
+    `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action`
+    * [ ] Regenerate Integration Runtime Authentication Keys \
+    `Microsoft.DataFactory/datafactories/integrationruntimes/regenerateauthkey/action`
+    * [ ] Create Self hosted Integration Runtime express install link \
+    `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
+    * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
 * [ ] Ensure that default-allow-RDP Port 3389 is removed from SHIR VM NSG rules. [[1.1](adf-security-baseline.md#11-protect-azure-resources-within-virtual-networks)]
 * [ ] Ensure that SHIR hosting VM Network Security Groups (NSG)s are monitored. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
 * [ ] Ensure that NSG Flow logs v2 are enabled for SHIR VM. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
@@ -64,19 +74,6 @@
 * [ ] Ensure that SHIR VMs are onboarded to Azure Sentinel. [[2.4](adf-security-baseline.md#24-collect-security-logs-from-operating-systems)] [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 * [ ] Ensure that default port 8060 used by SHIR for secure communication is changed.
 * [ ] Ensure that data store credentials are not stored locally in SHIR.
-* [ ] Ensure that Integration Runtime operations are monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
-Operation Names:
-    * [ ] Create or Update any Integration Runtime \
-    `Microsoft.DataFactory/factories/integrationruntimes/write`
-    * [ ] Delete Integration Runtime \
-    `Microsoft.DataFactory/factories/integrationruntimes/delete`
-    * [ ] List Integration Runtime Authentication Keys \
-    `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action`
-    * [ ] Regenerate Integration Runtime Authentication Keys \
-    `Microsoft.DataFactory/datafactories/integrationruntimes/regenerateauthkey/action`
-    * [ ] Create Self hosted Integration Runtime express install link \
-    `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
-    * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
     
 ## 3. Linked Services
 
