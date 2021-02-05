@@ -24,6 +24,7 @@
     * [ ] Create role assignment \
     `Microsoft.Authorization/roleAssignments/write`
     * [Use Case: Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml)
+        * Requires a watchlist
 * [ ] Ensure that Azure Data Factory Activity Log is monitored. [[2.2](adf-security-baseline.md#22-configure-central-security-log-management)] [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)] \
     Operation Name(s):
     * [ ] Create or Update any Data Factory. \
