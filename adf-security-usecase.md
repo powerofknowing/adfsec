@@ -76,6 +76,7 @@ Operation Names:
     * [ ] Create Self hosted Integration Runtime express install link \
     `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
     * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
+    * [Use Case: Too many Integration Runtime operations per Data Factory](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml)
 * [ ] Ensure that default-allow-RDP Port 3389 is removed from SHIR VM NSG rules. [[1.1](adf-security-baseline.md#11-protect-azure-resources-within-virtual-networks)]
 * [ ] Ensure that SHIR hosting VM Network Security Groups (NSG)s are monitored. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
 * [ ] Ensure that NSG Flow logs v2 are enabled for SHIR VM. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
