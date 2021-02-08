@@ -1,0 +1,26 @@
+id: cc941ce8-1c24-4310-bc41-a149c86679ce
+name: ADF Role Assignments
+description: Identifies changes to ADF role assignments.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Initial Access
+query:
+let SensitiveOperationList = dynamic(
+    ["Microsoft.Authorization/roleAssignments/write", "Microsoft.Authorization/roleAssignments/delete"]);
+AzureActivity 
+| where TimeGenerated > ago(24h)
+| where OperationNameValue in~ (SensitiveOperationList)
+| where ResourceProvider == "Microsoft.Authorization"
+| where ActivityStatus == "Succeeded"
+| extend AccountCustomEntity = Caller
+| extend IPCustomEntity = CallerIpAddress
+| extend URLCustomEntity = ResourceId
+| extend HostCustomEntity = Resource
