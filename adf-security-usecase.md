@@ -108,6 +108,14 @@ Operation Names:
     * Requires a watchlist
 * [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
 
+## ADF Use Case Table
+Following table summarizes ADF security use cases by ADF components.
+| Data Factory | Integration Runtime | Linked Service | Pipeline |
+| --- | --- | --- | --- |
+| [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | [ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [ADF Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [ADF Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
+| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | - | - | - |
+| [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | - | - | - |
+
 
 # Terminology
 The terms "**control**", "**benchmark**", and "**baseline**" are used often in the Azure Security Benchmark documentation and it's important to understand how Azure uses those terms.
