@@ -1,5 +1,5 @@
 id: ca761f1c-4aea-4319-bc45-5557f5520721
-name: Unsafe Azure Data Factory Signins  
+name: Unauthorized Azure Data Factory Signins  
 description: Identifies unsafe Azure Data Factory signins which are not part of watchlist.
 severity: Low  
 requiredDataConnectors:  
@@ -20,7 +20,6 @@ query:
 let allowlist = _GetWatchlist('ADFAdmins')
     | project UserPrincipalName;
 SigninLogs
-| take 1000
 | where AppDisplayName == "Azure Data Factory"
 | sort by TimeGenerated
 | project TimeGenerated, Category, Identity, AppDisplayName, Location, UserDisplayName, UserPrincipalName, IPAddress, Status
