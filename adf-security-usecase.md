@@ -22,7 +22,7 @@ Following table summarizes ADF security use cases by ADF components.
 | Data Factory | Integration Runtime | Linked Service | Pipeline |
 | --- | --- | --- | --- |
 | [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
-| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | - | - | - |
+| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many Integration Runtime operations per Data Factory](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | - | - |
 | [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | - | - | - |
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
 </br>
