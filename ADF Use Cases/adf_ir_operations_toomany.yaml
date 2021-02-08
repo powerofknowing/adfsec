@@ -1,0 +1,30 @@
+id: 95b88065-3369-4645-89fa-e0e81c956deb
+name: Too many Integration Runtime operations per Data Factory
+description: Identifies when there are too many integration runtime create, update, delete operations per data factory instance.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Impact
+query:
+let timeRange=ago(7d);
+let threshold = 2;
+let SensitiveOperationList = dynamic(
+  ["Microsoft.DataFactory/factories/integrationruntimes/delete", "Microsoft.DataFactory/factories/integrationruntimes/write"]);
+AzureActivity 
+| where TimeGenerated >= timeRange
+| where ResourceProvider == "Microsoft.DataFactory"
+| where ActivityStatus == "Succeeded"
+| where OperationNameValue in~ (SensitiveOperationList)
+| parse ResourceId with * "/factories/" TargetResourceAuthProvider "/" *
+| summarize ActivityCountByCallerIPAddress = count(), StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makeset(TimeGenerated), Caller = makeset(Caller), makeset(ResourceGroup), makeset(SubscriptionId) by TargetResourceAuthProvider, CallerIpAddress
+| where ActivityCountByCallerIPAddress > threshold
+| order by ActivityCountByCallerIPAddress
+| extend timestamp = StartTimeUtc, IPCustomEntity = CallerIpAddress, AccountCustomEntity = Caller
+
