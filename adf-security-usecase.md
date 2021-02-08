@@ -17,6 +17,16 @@
 * VNET isolation
     * NSGs
 
+# ADF Use Case Summary Table
+Following table summarizes ADF security use cases by ADF components.
+| Data Factory | Integration Runtime | Linked Service | Pipeline |
+| --- | --- | --- | --- |
+| [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
+| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | - | - | - |
+| [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | - | - | - |
+| [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
+</br>
+
 # Azure Data Factory Use Cases
 ## 1. Data Factory Instance
 * [ ] Ensure that access to Data Factory management plane is monitored. [[3.1](adf-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts)] \
@@ -109,15 +119,6 @@ Operation Names:
 * [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
     * Requires a watchlist
 * [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
-
-## ADF Use Case Table
-Following table summarizes ADF security use cases by ADF components.
-| Data Factory | Integration Runtime | Linked Service | Pipeline |
-| --- | --- | --- | --- |
-| [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
-| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | - | - | - |
-| [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | - | - | - |
-| [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
 
 
 # Terminology
