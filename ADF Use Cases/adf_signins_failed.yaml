@@ -1,0 +1,31 @@
+id: e316dbad-4f26-4e4d-bc98-1588e5582b3d
+name: Failed attempt to access ADF portal.
+description: Access attempts to ADF Portal from an unauthorized user. Either invalid password or the user account does not exist.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActiveDirectory
+    dataTypes:
+      - SigninLogs
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Initial Access
+query:
+let timeRange=ago(7d);
+SigninLogs
+| where TimeGenerated >= timeRange
+| where AppDisplayName == "Azure Data Factory"
+// 50126 - Invalid username or password, or invalid on-premises username or password.
+// 50020? - The user doesn't exist in the tenant.
+| where ResultType in ("50126", "50020")
+| extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser
+| extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails)
+| extend State = tostring(LocationDetails.state), City = tostring(LocationDetails.city)
+| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), IPAddresses = makeset(IPAddress), DistinctIPCount = dcount(IPAddress), 
+    makeset(OS), makeset(Browser), makeset(City), AttemptCount = count() 
+    by UserDisplayName, UserPrincipalName, AppDisplayName, ResultType, ResultDescription, StatusCode, StatusDetails, Location, State
+| extend timestamp = StartTimeUtc, AccountCustomEntity = UserPrincipalName
+| sort by AttemptCount
+

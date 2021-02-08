@@ -39,6 +39,8 @@
     * [ ] Get GitHub access token \
     `Microsoft.DataFactory/factories/getGitHubAccessToken`
     * [Use Case: Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml)
+* [ ] Ensure that failed Data Factory signin attempts are monitored. [[3.7](adf-security-baseline.md#37-log-and-alert-on-suspicious-activities-from-administrative-accounts)]
+    * [Use Case: Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml)
 * [ ] Ensure that Data Factory diagnostic settings are enabled and logs are sent to a Log Analytics Workspace which is connected to Azure Sentinel. [[2.3](adf-security-baseline.md#23-enable-audit-logging-for-azure-resources)]
     * Log categories: ActivityRuns, PiplelineRuns, TriggerRuns
     * Destination table: Resource specific
