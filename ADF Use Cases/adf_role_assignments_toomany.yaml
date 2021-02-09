@@ -13,14 +13,13 @@ triggerThreshold: 1
 tactics:
   - Initial Access
 query:
-let timeframe = 7d;
-let alertThreshold = 3;
+let timeframe = 3d;
+let alertThreshold = 1;
 AzureActivity
 | where TimeGenerated >= ago(timeframe)
 | where OperationName == "Create role assignment"
 | where ActivityStatus == "Succeeded" 
 | parse ResourceId with * "/factories/" DataFactoryName "/" *
-| project Caller, CallerIpAddress, DataFactoryName
-| summarize RoleAssignmentCount = count() by Caller, CallerIpAddress, DataFactoryName
+| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makeset(TimeGenerated), RoleAssignmentCount = count(), makeset(ResourceGroup), makeset(SubscriptionId) by Caller, CallerIpAddress, DataFactoryName
 | where isnotempty(DataFactoryName) and RoleAssignmentCount >= alertThreshold
 | extend AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress, HostCustomEntity = DataFactoryName
