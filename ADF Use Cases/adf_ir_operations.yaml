@@ -15,7 +15,7 @@ tactics:
   - Persistence
 query:
 let starttime = 1d;
-let alertOperationThreshold = 3;
+let alertOperationThreshold = 1;
 let OperationList = dynamic(
 ["Microsoft.DataFactory/factories/integrationruntimes/write", "Microsoft.DataFactory/factories/integrationruntimes/delete"]);
 AzureActivity 
@@ -23,8 +23,9 @@ AzureActivity
 | where ResourceProvider == "Microsoft.DataFactory"
 | where OperationNameValue in~ (OperationList)
 | where ActivityStatus == "Succeeded"
+| parse ResourceId with * "/factories/" DataFactoryName "/" *
 | summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
 OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
-by CallerIpAddress, Caller, OperationName
+by CallerIpAddress, Caller, OperationName, DataFactoryName
 | where ActivityCountByCallerIPAddress >= alertOperationThreshold
-| extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress
+| extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress, HostCustomEntity = DataFactoryName
