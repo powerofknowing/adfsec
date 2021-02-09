@@ -120,6 +120,8 @@ Operation Names:
 * [ ] Ensure that only dedicated administrative accounts can access Data Factory console. [[3.3](adf-security-baseline.md#33-use-dedicated-administrative-accounts)]
     * Requires a watchlist
 * [ ] Ensure that  dedicated administrative accounts accessing Data Factory has MFA enabled. [[3.5](adf-security-baseline.md#35-use-multi-factor-authentication-for-all-azure-active-directory-based-access)]
+* [ ] Ensure that excessive role assignmets per Data Factory are monitored.
+    * [Use Case: Too many role assignments per Data Factory](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml)
 
 
 # Terminology
