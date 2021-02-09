@@ -14,13 +14,12 @@ tactics:
   - Credential Access
   - Persistence
 query:
-let starttime = 24h;
-let endtime = 1h;
+let starttime = 1d;
 let alertOperationThreshold = 3;
 let OperationList = dynamic(
 ["Microsoft.DataFactory/factories/integrationruntimes/write", "Microsoft.DataFactory/factories/integrationruntimes/delete"]);
 AzureActivity 
-| where TimeGenerated between (ago(starttime) .. ago(endtime))
+| where TimeGenerated > ago(starttime)
 | where ResourceProvider == "Microsoft.DataFactory"
 | where OperationNameValue in~ (OperationList)
 | where ActivityStatus == "Succeeded"
