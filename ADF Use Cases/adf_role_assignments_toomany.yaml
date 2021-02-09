@@ -1,0 +1,26 @@
+id: b04b9428-ee42-4423-9914-b1ac6db07af4
+name: Too many role assignments per Data Factory
+description: Identifies when there are too many role assignments per data factory.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Initial Access
+query:
+let timeframe = 7d;
+let alertThreshold = 3;
+AzureActivity
+| where TimeGenerated >= ago(timeframe)
+| where OperationName == "Create role assignment"
+| where ActivityStatus == "Succeeded" 
+| parse ResourceId with * "/factories/" DataFactoryName "/" *
+| project Caller, CallerIpAddress, DataFactoryName
+| summarize RoleAssignmentCount = count() by Caller, CallerIpAddress, DataFactoryName
+| where isnotempty(DataFactoryName) and RoleAssignmentCount >= alertThreshold
+| extend AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress, HostCustomEntity = DataFactoryName
