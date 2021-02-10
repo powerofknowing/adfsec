@@ -1,0 +1,31 @@
+id: 4e1a7405-2401-44e2-a4f7-0ec945b27eb3
+name: ADF Integration Runtime Authentication Keys regenerated
+description: Identifies when authentication keys of a self-hosted integration runtime (SHIR) are regenerated.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Command and Control
+  - Persistence
+query:
+let starttime = 7d;
+let alertOperationThreshold = 1;
+let OperationList = dynamic(
+["Microsoft.DataFactory/datafactories/integrationruntimes/regenerateauthkey/action"]);
+AzureActivity 
+| where TimeGenerated > ago(starttime)
+| where ResourceProvider == "Microsoft.DataFactory"
+| where OperationNameValue in~ (OperationList)
+| where ActivityStatus == "Succeeded"
+| parse ResourceId with * "/factories/" DataFactoryName "/" *
+| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makelist(TimeGenerated), ActivityStatus = makelist(ActivityStatus), 
+OperationIds = makelist(OperationId), CorrelationIds = makelist(CorrelationId), Resources = makelist(Resource), ResourceGroups = makelist(ResourceGroup), ResourceIds = makelist(ResourceId), ActivityCountByCallerIPAddress = count()  
+by CallerIpAddress, Caller, OperationName, DataFactoryName
+| where ActivityCountByCallerIPAddress >= alertOperationThreshold
+| extend timestamp = StartTimeUtc, AccountCustomEntity = Caller, IPCustomEntity = CallerIpAddress, HostCustomEntity = DataFactoryName

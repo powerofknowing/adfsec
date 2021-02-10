@@ -11,6 +11,7 @@ queryPeriod: 1d
 triggerOperator: gt
 triggerThreshold: 1
 tactics:
+  - Defense Evasion
   - Persistence
 query:
 let SensitiveOperationList = dynamic(
