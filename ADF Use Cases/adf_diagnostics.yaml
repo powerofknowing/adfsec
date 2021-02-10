@@ -1,0 +1,27 @@
+id: 5ce10c39-9a85-4186-994f-2e503e5b5619
+name: ADF Diagnostic Settings
+description: Identifies when diagnostic settings of a data factory are modified.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Persistence
+query:
+let SensitiveOperationList = dynamic(
+    ["microsoft.insights/diagnosticSettings/write", "microsoft.insights/diagnosticSettings/delete"]);
+AzureActivity 
+| where TimeGenerated > ago(24h)
+| where OperationNameValue in~ (SensitiveOperationList)
+| parse ResourceId with * "/factories/" DataFactoryName "/" *
+| where ActivityStatus == "Succeeded"
+| extend AccountCustomEntity = Caller
+| extend IPCustomEntity = CallerIpAddress
+| extend URLCustomEntity = ResourceId
+| extend HostCustomEntity = DataFactoryName
+S
