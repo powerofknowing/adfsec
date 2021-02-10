@@ -1,21 +1,24 @@
 # Azure Data Factory Attack Surface
 
 * ADF instance
+* ADF Portal
+* ADF GitHub repo
 * Integration Runtimes
     * Azure IR
     * Self-Hosted IR
     * Azure SSIS-IR
-* ADF Portal
-* ADF GitHub repo
+    * IR VMs
+    * IR VNETs
+        * NSGs
+    * IR Auth Keys
 * Linked Services
 * Data Sources
     * Azure SQL DB
     * Azure Data Lake
     * Azure Storage
+    * ...
 * Key Management
     * Azure Key Vault
-* VNET isolation
-    * NSGs
 
 # ADF Use Case Summary Table
 Following table summarizes ADF security use cases by ADF components.
