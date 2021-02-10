@@ -77,7 +77,7 @@ Operation Names:
     * [ ] Delete Integration Runtime \
     `Microsoft.DataFactory/factories/integrationruntimes/delete`
     * [ ] List Integration Runtime Authentication Keys \
-    `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action`
+    `Microsoft.DataFactory/factories/integrationruntimes/listAuthKeys/action`
     * [ ] Regenerate Integration Runtime Authentication Keys \
     `Microsoft.DataFactory/factories/integrationruntimes/regenerateAuthKey/action`
     * [ ] Create Self hosted Integration Runtime express install link \
