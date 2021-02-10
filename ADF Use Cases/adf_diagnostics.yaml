@@ -24,4 +24,3 @@ AzureActivity
 | extend IPCustomEntity = CallerIpAddress
 | extend URLCustomEntity = ResourceId
 | extend HostCustomEntity = DataFactoryName
-S
