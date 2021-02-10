@@ -26,6 +26,8 @@ Following table summarizes ADF security use cases by ADF components.
 | [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | - | - | - |
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
 | [Too many role assignments per Data Factory](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
+| [ADF Diagnostic Settings](ADF%20Use%20Cases/adf_diagnostics.yaml) | - | - | - |
+
 
 
 # Azure Data Factory Use Cases
@@ -57,6 +59,7 @@ Following table summarizes ADF security use cases by ADF components.
     * Destination table: Resource specific
     * Operation Name: Create or update resource diagnostic setting \
     `microsoft.insights/diagnosticSettings/write`
+    * [Use Case: ADF Diagnostic Settings](ADF%20Use%20Cases/adf_diagnostics.yaml)
 * [ ] Ensure that Data Factory log retention period is aligned with organization's compliance regulations. [[2.5](adf-security-baseline.md#25-configure-security-log-storage-retention)]  
 * [ ] Ensure that network communication to Data Factory Command Channel does not go over public internet. 
 * [ ] Ensure that network communication to Data Factory Data Channel does not go over public internet. e.g. ExpressRoute private peering
