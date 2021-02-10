@@ -1,7 +1,7 @@
 id: 5ce10c39-9a85-4186-994f-2e503e5b5619
 name: ADF Diagnostic Settings
 description: Identifies when diagnostic settings of a data factory are modified.
-severity: Medium
+severity: Low
 requiredDataConnectors:  
   - connectorId: AzureActivity
     dataTypes:
@@ -21,6 +21,7 @@ AzureActivity
 | where OperationNameValue in~ (SensitiveOperationList)
 | parse ResourceId with * "/factories/" DataFactoryName "/" *
 | where ActivityStatus == "Succeeded"
+| where isnotempty(DataFactoryName)
 | extend AccountCustomEntity = Caller
 | extend IPCustomEntity = CallerIpAddress
 | extend URLCustomEntity = ResourceId
