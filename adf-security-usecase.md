@@ -24,11 +24,11 @@
 Following table summarizes ADF security use cases by ADF components.
 | Data Factory | Integration Runtime | Linked Service | Pipeline |
 | --- | --- | --- | --- |
-| [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
-| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many Integration Runtime operations per Data Factory](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | - | - |
-| [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | - | - | - |
+| [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [IR Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
+| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many IR operations per ADF](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | - | - |
+| [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | [IR Auth Keys regenerated](ADF%20Use%20Cases/adf_ir_authkeys_regenerate.yaml) | - | - |
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
-| [Too many role assignments per Data Factory](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
+| [Too many role assignments per ADF](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
 | [ADF Diagnostic Settings](ADF%20Use%20Cases/adf_diagnostics.yaml) | - | - | - |
 
 
@@ -84,6 +84,7 @@ Operation Names:
     `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
     * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)
     * [Use Case: Too many Integration Runtime operations per Data Factory](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml)
+    * [Use Case: Integration Runtime Authentication Keys regenerated](ADF%20Use%20Cases/adf_ir_authkeys_regenerate.yaml)
 * [ ] Ensure that default-allow-RDP Port 3389 is removed from SHIR VM NSG rules. [[1.1](adf-security-baseline.md#11-protect-azure-resources-within-virtual-networks)]
 * [ ] Ensure that SHIR hosting VM Network Security Groups (NSG)s are monitored. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
 * [ ] Ensure that NSG Flow logs v2 are enabled for SHIR VM. [[1.2](adf-security-baseline.md#12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics)]
