@@ -79,7 +79,7 @@ Operation Names:
     * [ ] List Integration Runtime Authentication Keys \
     `Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action`
     * [ ] Regenerate Integration Runtime Authentication Keys \
-    `Microsoft.DataFactory/factories/integrationruntimes/regenerateauthkey/action`
+    `Microsoft.DataFactory/factories/integrationruntimes/regenerateAuthKey/action`
     * [ ] Create Self hosted Integration Runtime express install link \
     `Microsoft.DataFactory/factories/integrationruntimes/createExpressSHIRInstallLink/action`
     * [Use Case: ADF Integration Runtime Operations](ADF%20Use%20Cases/adf_ir_operations.yaml)

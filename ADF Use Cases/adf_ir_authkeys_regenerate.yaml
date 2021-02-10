@@ -17,7 +17,7 @@ query:
 let starttime = 7d;
 let alertOperationThreshold = 1;
 let OperationList = dynamic(
-["Microsoft.DataFactory/factories/integrationruntimes/regenerateauthkey/action"]);
+["Microsoft.DataFactory/factories/integrationruntimes/regenerateAuthKey/action"]);
 AzureActivity 
 | where TimeGenerated > ago(starttime)
 | where ResourceProvider == "Microsoft.DataFactory"
