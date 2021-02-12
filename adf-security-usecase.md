@@ -28,7 +28,7 @@ Following table summarizes ADF security use cases by ADF components.
 | [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many IR operations](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | [Too many Linked Service operations](ADF%20Use%20Cases/adf_linkedservice_toomany.yaml) | - |
 | [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | [IR Auth Keys regenerated](ADF%20Use%20Cases/adf_ir_authkeys_regenerate.yaml) | - | - |
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
-| [Too many role assignments per ADF](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
+| [Too many role assignments](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
 | [ADF Diagnostic Settings](ADF%20Use%20Cases/adf_diagnostics.yaml) | - | - | - |
 
 
