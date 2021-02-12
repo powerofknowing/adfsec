@@ -1,0 +1,30 @@
+id: f4600329-8dd2-4f79-952b-e2d4be22db5a
+name: Too many Linked Service operations per Data Factory
+description: Identifies when there are too many linked service operations per data factory.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActivity
+    dataTypes:
+      - AzureActivity
+queryFrequency: 1d
+queryPeriod: 1d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Credential Access
+  - Persistence
+query:
+let timeRange=ago(7d);
+let threshold = 2;
+let SensitiveOperationList = dynamic(
+  ["Microsoft.DataFactory/factories/linkedServices/delete", "Microsoft.DataFactory/factories/linkedServices/write"]);
+AzureActivity 
+| where TimeGenerated >= timeRange
+| where ResourceProvider == "Microsoft.DataFactory"
+| where ActivityStatus == "Succeeded"
+| where OperationNameValue in~ (SensitiveOperationList)
+| parse ResourceId with * "/factories/" TargetResourceAuthProvider "/" *
+| summarize ActivityCountByCallerIPAddress = count(), StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ActivityTimeStamp = makeset(TimeGenerated), Caller = makeset(Caller), makeset(ResourceGroup), makeset(SubscriptionId) by TargetResourceAuthProvider, CallerIpAddress
+| where ActivityCountByCallerIPAddress > threshold
+| order by ActivityCountByCallerIPAddress
+| extend timestamp = StartTimeUtc, IPCustomEntity = CallerIpAddress, AccountCustomEntity = Caller
