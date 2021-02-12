@@ -25,7 +25,7 @@ Following table summarizes ADF security use cases by ADF components.
 | [Data Factory](adf-security-usecase.md#1-data-factory-instance) | [Integration Runtime](adf-security-usecase.md#2-self-hosted-integration-runtime-shir) | [Linked Service](adf-security-usecase.md#3-linked-services) | [Pipeline](adf-security-usecase.md#4-pipelines) |
 | --- | --- | --- | --- |
 | [Rare ADF Operations](ADF%20Use%20Cases/adf_rare_operations.yaml) | [IR Operations](ADF%20Use%20Cases/adf_ir_operations.yaml) | [Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml) | [Pipeline Operations](ADF%20Use%20Cases/adf_pipeline_operations.yaml) |
-| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many IR operations per ADF](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | - | - |
+| [Unauthorized ADF Signins](ADF%20Use%20Cases/adf_signins.yaml) | [Too many IR operations](ADF%20Use%20Cases/adf_ir_operations_toomany.yaml) | [Too many Linked Service operations](ADF%20Use%20Cases/adf_linkedservice_toomany.yaml) | - |
 | [Failed ADF signins](ADF%20Use%20Cases/adf_signins_failed.yaml) | [IR Auth Keys regenerated](ADF%20Use%20Cases/adf_ir_authkeys_regenerate.yaml) | - | - |
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
 | [Too many role assignments per ADF](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
@@ -109,6 +109,7 @@ Operation Names:
     * [ ] Delete Linked Service. \
     `Microsoft.DataFactory/factories/linkedServices/delete`
     * [Use Case: ADF Linked Service Operations](ADF%20Use%20Cases/adf_linkedservice_operations.yaml)
+    * [Use Case: Too many Linked Service operations](ADF%20Use%20Cases/adf_linkedservice_toomany.yaml)
 
 * [ ] Ensure that Linked Services are using `Managed Identity` as Authentication Method when connecting to other Azure services. [[3.9](adf-security-baseline.md#39-use-azure-active-directory)]
 
