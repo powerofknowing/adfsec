@@ -30,7 +30,7 @@ Following table summarizes ADF security use cases by ADF components.
 | [ADF Role Assignments](ADF%20Use%20Cases/adf_role_assignments.yaml) | - | - | - |
 | [Too many role assignments](ADF%20Use%20Cases/adf_role_assignments_toomany.yaml) | - | - | - |
 | [ADF Diagnostic Settings](ADF%20Use%20Cases/adf_diagnostics.yaml) | - | - | - |
-
+| [Anomalous ADF Signins](ADF%20Use%20Cases/adf_signins_anomalous.yaml) | - | - | - |
 
 
 # Azure Data Factory Use Cases
