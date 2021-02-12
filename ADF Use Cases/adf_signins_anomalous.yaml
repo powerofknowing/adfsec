@@ -1,0 +1,46 @@
+id: 9c70e09b-97b3-494f-9cf8-f1cde6f8fff1
+name: Anomalous ADF signins based on location
+description: Identifies anomalous Data Factory signins with an unusually high ratio of distinct geolocations versus total number of authentications.
+severity: Medium
+requiredDataConnectors:  
+  - connectorId: AzureActiveDirectory
+    dataTypes:
+      - SigninLogs
+queryFrequency: 1d
+queryPeriod: 14d
+triggerOperator: gt
+triggerThreshold: 1
+tactics:
+  - Initial Access
+query:
+let timeRange=ago(14d);
+let azureSignIns = 
+    SigninLogs
+    | where TimeGenerated >= timeRange
+    | where SourceSystem == "Azure AD"
+    | where OperationName == "Sign-in activity"
+    | project TimeGenerated, OperationName, AppDisplayName, Identity, UserId, UserPrincipalName, Location, LocationDetails, 
+        ClientAppUsed, DeviceDetail, ConditionalAccessPolicies;
+azureSignIns
+| extend locationString = strcat(tostring(LocationDetails["countryOrRegion"]), "/", 
+    tostring(LocationDetails["state"]), "/", tostring(LocationDetails["city"]), ";", tostring(LocationDetails["geoCoordinates"]))
+| summarize rawSigninCount = count(), countByAccount = dcount(UserId), locationCount = dcount(locationString) by AppDisplayName
+// tail - pick a threshold to rule out the very-high volume Azure AD apps
+| where rawSigninCount < 1000
+// more locations than accounts
+| where locationCount > countByAccount
+// almost as many / more locations than sign-ins!
+| where 1.0 * rawSigninCount / locationCount > 0.8 
+| where AppDisplayName == "Azure Data Factory"
+| order by rawSigninCount desc
+| join kind = leftouter (
+    azureSignIns 
+    )
+    on AppDisplayName 
+| project AppDisplayName, TimeGenerated, Identity, rawSigninCount, countByAccount, locationCount,  
+    locationString = strcat(tostring(LocationDetails["countryOrRegion"]), "/", tostring(LocationDetails["state"]), "/", 
+    tostring(LocationDetails["city"]), ";", tostring(LocationDetails["geoCoordinates"])), UserPrincipalName
+| extend timestamp = TimeGenerated, AccountCustomEntity = UserPrincipalName 
+| order by AppDisplayName, TimeGenerated desc
+
+
